@@ -5,6 +5,12 @@
  *
  * Made By MaterializeCSS.com
  */
+ .card-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 250px;
+}
 
 nav ul a,
 nav .brand-logo {

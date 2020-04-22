@@ -1,0 +1,363 @@
+<script>
+
+    const data = {
+      "name": "marvel",
+      "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/marvel.png",
+      "children": [
+        {
+          "name": "Heroes",
+          "children": [
+            {
+              "hero": "Spider-Man",
+              "name": "Peter Benjamin Parker",
+              "link": "http://marvel.com/characters/54/spider-man",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png",
+              "size": 40000
+            },
+            {
+              "hero": "CAPTAIN MARVEL",
+              "name": "Carol Danvers",
+              "link": "http://marvel.com/characters/9/captain_marvel",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png",
+              "size": 40000
+            },
+            {
+              "hero": "HULK",
+              "name": "Robert Bruce Banner",
+              "link": "http://marvel.com/characters/25/hulk",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_hulk.png",
+              "size": 40000
+            },
+            {
+              "hero": "Black Widow",
+              "name": "Natalia 'Natasha' Alianovna Romanova",
+              "link": "http://marvel.com/characters/6/black_widow",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_blackwidow.png",
+              "size": 40000
+            },
+            {
+              "hero": "Daredevil",
+              "name": "Matthew Michael Murdock",
+              "link": "http://marvel.com/characters/11/daredevil",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_daredevil.png",
+              "size": 40000
+            },
+            {
+              "hero": "Wolverine",
+              "name": "James Howlett",
+              "link": "http://marvel.com/characters/66/wolverine",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_wolverine.png",
+              "size": 40000
+            },
+            {
+              "hero": "Captain America",
+              "name": "Steven Rogers",
+              "link": "http://marvel.com/characters/8/captain_america",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainamerica.png",
+              "size": 40000
+            },
+            {
+              "hero": "Iron Man",
+              "name": "Anthony Edward 'Tony' Stark",
+              "link": "http://marvel.com/characters/29/iron_man",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_ironman.png",
+              "size": 40000
+            },
+            {
+              "hero": "THOR",
+              "name": "Thor Odinson",
+              "link": "http://marvel.com/characters/60/thor",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_thor.png",
+              "size": 40000
+            }
+          ]
+        },
+        {
+          "name": "Villains",
+          "children": [
+            {
+              "hero": "Dr. Doom",
+              "name": "Victor von Doom",
+              "link": "http://marvel.com/characters/13/dr_doom",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/drdoom.png",
+              "size": 40000
+            },
+            {
+              "hero": "Mystique",
+              "name": "Unrevealed",
+              "link": "http://marvel.com/characters/1552/mystique",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/mystique.png",
+              "size": 40000
+            },
+            {
+              "hero": "Red Skull",
+              "name": "Johann Shmidt",
+              "link": "http://marvel.com/characters/1901/red_skull",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/redskull.png",
+              "size": 40000
+            },
+            {
+              "hero": "Ronan",
+              "name": "Ronan",
+              "link": "http://marvel.com/characters/49/ronan",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/ronan.png",
+              "size": 40000
+            },
+            {
+              "hero": "Magneto",
+              "name": "Max Eisenhardt",
+              "link": "http://marvel.com/characters/35/magneto",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/magneto.png",
+              "size": 40000
+            },
+            {
+              "hero": "Thanos",
+              "name": "Thanos",
+              "link": "http://marvel.com/characters/58/thanos",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/thanos.png",
+              "size": 40000
+            },
+            {
+              "hero": "Black Cat",
+              "name": "Felicia Hardy",
+              "link": "http://marvel.com/characters/271/black_cat",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/blackcat.png",
+              "size": 40000
+            }
+          ]
+        },
+        {
+          "name": "Teams",
+          "children": [
+            {
+              "hero": "Avengers",
+              "name": "",
+              "link": "http://marvel.com/characters/68/avengers",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/avengers.png",
+              "size": 40000
+            },
+            {
+              "hero": "Guardians of the Galaxy",
+              "name": "",
+              "link": "http://marvel.com/characters/70/guardians_of_the_galaxy",
+              "img": "static/media/ds_background_1.1.jpg",
+              "size": 40000
+            },
+            {
+              "hero": "Defenders",
+              "name": "",
+              "link": "http://marvel.com/characters/534/defenders",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/defenders.png",
+              "size": 40000
+            },
+            {
+              "hero": "X-Men",
+              "name": "",
+              "link": "http://marvel.com/characters/71/x-men",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/xmen.png",
+              "size": 40000
+            },
+            {
+              "hero": "Fantastic Four",
+              "name": "",
+              "link": "http://marvel.com/characters/69/fantastic_four",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/fantasticfour.png",
+              "size": 40000
+            },
+            {
+              "hero": "Inhumans",
+              "name": "",
+              "link": "http://marvel.com/characters/1040/inhumans",
+              "img": "http://marvel-force-chart.surge.sh/marvel_force_chart_img/inhumans.png",
+              "size": 40000
+            }
+          ]
+        }
+      ]
+    }
+
+
+
+
+
+
+
+
+    const width = 1000,
+      height = 1000;
+
+    let i = 0;
+
+    const root = d3.hierarchy(data);
+    // const transform = d3.zoomIdentity;
+    let node, link;
+
+    const svg = d3.select('body').append('svg')
+      // .call(d3.zoom().scaleExtent([1/2, 8]).on('zoom', zoomed))
+      .append('g')
+      .attr('transform', 'translate(40,0)');
+
+
+
+    const simulation = d3.forceSimulation()
+      .force('link', d3.forceLink().id(function (d) { return d.id; }))
+      .force('charge', d3.forceManyBody().strength(-15).distanceMax(300))
+      .force('center', d3.forceCenter(width / 2, height / 4))
+      .on('tick', ticked)
+
+
+    function update() {
+      const nodes = flatten(root)
+      const links = root.links()
+
+      link = svg
+        .selectAll('.link')
+        .data(links, function (d) { return d.target.id })
+
+      link.exit().remove()
+
+      const linkEnter = link
+        .enter()
+        .append('line')
+        .attr('class', 'link')
+        .style('stroke', '#000')
+        .style('opacity', '0.2')
+        .style('stroke-width', 2)
+
+      link = linkEnter.merge(link)
+
+      node = svg
+        .selectAll('.node')
+        .data(nodes, function (d) { return d.id })
+
+      node.exit().remove()
+
+      const nodeEnter = node
+        .enter()
+        .append('g')
+        .attr('class', 'node')
+        .attr('stroke', '#666')
+        .attr('stroke-width', 2)
+        .style('fill', color)
+        .style('opacity', 1)
+        .on('click', clicked)
+        .call(d3.drag()
+          .on('start', dragstarted)
+          .on('drag', dragged)
+          .on('end', dragended))
+
+      nodeEnter.append('circle')
+        .attr("r", function (d) { return Math.sqrt(d.data.size) / 10 || 4.5; })
+        .style('text-anchor', function (d) { return d.children ? 'end' : 'start'; })
+        .text(function (d) { return d.data.name })
+
+  // // Append images
+  // var images = nodeEnter.append("svg:image")
+  //       .attr("xlink:href",  function(d) { return d.img;})
+  //       .attr("x", function(d) { return -25;})
+  //       .attr("y", function(d) { return -25;})
+  //       .attr("height", 50)
+  //       .attr("width", 50);
+  
+  
+
+      // var images = nodeEnter.append("svg:imageg")
+      //   .append("svg:img")
+      //   .attr("xlink:href", function (d) { return d.img; })
+      //   .attr("x", "60")
+      //   .attr("y", "60")
+      //   .attr("width", "20")
+      //   .attr("height", "20");
+
+      nodeEnter.append("image")
+      .attr("xlink:href", "https://github.com/favicon.ico")
+      .attr("x", -8)
+      .attr("y", -8)
+      .attr("width", 16)
+      .attr("height", 16);
+
+      node = nodeEnter.merge(node)
+      simulation.nodes(nodes)
+      simulation.force('link').links(links)
+    }
+
+    function sizeContain(num) {
+      num = num > 1000 ? num / 1000 : num / 100
+      if (num < 4) num = 4
+      return num
+    }
+
+    function color(d) {
+      return d._children ? "#51A1DC" // collapsed package
+        : d.children ? "#51A1DC" // expanded package
+          : "#F94B4C"; // leaf node
+    }
+
+    function radius(d) {
+      return d._children ? 8
+        : d.children ? 8
+          : 4
+    }
+
+    function ticked() {
+      link
+        .attr('x1', function (d) { return d.source.x; })
+        .attr('y1', function (d) { return d.source.y; })
+        .attr('x2', function (d) { return d.target.x; })
+        .attr('y2', function (d) { return d.target.y; })
+
+      node
+        .attr('transform', function (d) { return `translate(${d.x}, ${d.y})` })
+    }
+
+    function clicked(d) {
+      if (!d3.event.defaultPrevented) {
+        if (d.children) {
+          d._children = d.children;
+          d.children = null;
+        } else {
+          d.children = d._children;
+          d._children = null;
+        }
+        update()
+      }
+    }
+
+
+    function dragstarted(d) {
+      if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+      d.fx = d.x
+      d.fy = d.y
+    }
+
+    function dragged(d) {
+      d.fx = d3.event.x
+      d.fy = d3.event.y
+    }
+
+    function dragended(d) {
+      if (!d3.event.active) simulation.alphaTarget(0)
+      d.fx = null
+      d.fy = null
+    }
+
+    function flatten(root) {
+      const nodes = []
+      function recurse(node) {
+        if (node.children) node.children.forEach(recurse)
+        if (!node.id) node.id = ++i;
+        else ++i;
+        nodes.push(node)
+      }
+      recurse(root)
+      return nodes
+    }
+
+    // function zoomed() {
+    //   svg.attr('transform', d3.event.transform)
+    // }
+
+    update()
+
+
+  </script>

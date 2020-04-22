@@ -1,248 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Marvel Characters | Force layout with images</title>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-    <style>
-      @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
-      body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; }
-      path.link {
-        fill: none;
-        stroke-width: 2px;
-      }
-      .node:not(:hover) .nodetext {
-        display: none;
-      }
-      h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
-      h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
-      header {padding: 20px; position: absolute; top: 0; left: 0;}
-      a:link { color: #EE3124; text-decoration: none;}
-      a:visited { color: #EE3124; }
-      a:hover { color: #A4CD39; text-decoration: underline;}
-      a:active { color: #EE3124; }
-    </style>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mitchell Data Science</title>
+
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="static/js/materialize.js"></script>
+  <script src="static/js/init.js"></script>
+
 </head>
-    
 
 <body>
-    <header>
-      <h1>Marvel Characters</h1>
-      <h2>Click to view their identity</h2>
-      <h3>And link to their web page!</h3>
-    </header>
-    <!-- container for force layout visualisation  -->
-    <section id="vis"></section> 
-<script>
 
-// some colour variables
-  var tcBlack = "#130C0E";
+  <nav class="black" role="navigation">
+    <div class="nav-wrapper container-fluid">
+      <a id="logo-container" href="index.html" class="brand-logo" style="padding-left: 30px;">Mitchell Data Science</a>
+      <ul class="right hide-on-med-and-down" style="padding-right: 30px">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="portfolio_navigator.html">PORTFOLIO</a></li>
+      </ul>
 
-// rest of vars
-var w = 960,
-    h = 800,
-    maxNodeSize = 50,
-    x_browser = 20,
-    y_browser = 25,
-    root;
- 
-var vis;
-var force = d3.layout.force(); 
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="portfolio_navigator.html">PORTFOLIO</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
 
-vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
- 
-d3.json("../static/js/marvel.json", function(json) {
- 
-  root = json;
-  root.fixed = true;
-  root.x = w / 2;
-  root.y = h / 4;
- 
- 
-        // Build the path
-  var defs = vis.insert("svg:defs")
+
+  <div id="index-banner" class="parallax-container" style="height: 10px">
+    <div class="section no-pad-bot"style="height: 10px">
+      <div class="container" >
+        <h1 class="header center teal-text text-darken-2" style="font-weight: 600;">Mitchell Data Science</h1>
+        <div class="row center">
+          <h5 class="header col s12 dark">Explore, Discover, Understand…</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="static/media/ds_background_1.1.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container-fluid" style="background-color: rgb(5, 63, 78);">
+    <div class="section ">
+
+      <!--   Icon Section   -->
+      <div class="row center">
+        <h3 class="center white-text" style="font-weight: 400;">Projects</i></h3> <br>
+        <h6 style="font-weight: 300; color: #eee;">Click on the dragable icons to learn more about my projects.</h6>
+      </div>
+
+
+      <div class="row ">
+        <div class="col lg4 m4 s12">
+          <div class="card medium">
+            <div class="card-image" id="projectImage">
+
+              <img class='activator' src="static/media/ds_background_3.jpg" alt="image">
+            </div>
+
+            <!-- <div class="card-image change-color-black"> -->
+            <h4 class="card-title" id="projectName"></h4>
+            <p id="projectDescription" class="card-text strong">
+              Here are my projects! I am always adding to this
+                portfolio, so feel free to check things out and continue to check in in the future!
+            </p>
+            <a id="projectLink"></a>
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col lg4 m4 s12">
+            <div class="card small">
+              <div class="card-image" id="projectImage">
+                
+                <span class="card-title" id="projectName" ></span>
+              </div>
+              <div class="card-content" id="projectDescription">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+                <a id="projectLink"></a>
+              </div>
+            </div>
+          </div> -->
+
+        <div class="col lg8 m8 s12">
+          <section id="vis"></section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light" style="font-weight: bold">A cutting edge approch to data exploration and
+            vizualization.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="static/media/ds_background_2.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer black">
+
+    <div class="row">
+      <h4>
+        <a id="logo-container" class="brand-logo" style="padding-left: 25px;">MDS</a>
+      </h4>
+    </div>
+
+
+    <div class="footer-copyright" style="padding-left: 25px">
+      <div class="container-fluid">
+        Made by <a class="brown-text text-lighten-3"> Howard G. Mitchell III</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Marvel Characters | Force layout with images</title>
+
+
+  <style>
+    .link {
+      stroke: #777;
+      /* stroke-width: 25px; */
+    }
+
+    .node {
+      pointer-events: all;
+      cursor: pointer;
+      z-index: 1000;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    .node text {
+      font: 8px sans-serif;
+    }
+
+    @media (min-width: 500px) {
+
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background-color: transparent;
+        border-right: 1px solid #eee;
+      }
+    }
+  </style>
+
+  <script src="https:cdn.jsdelivr.net/npm/d3-dsv"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+
+</head>
+
+
+
+<body>
+  <header>
+    <h1>Marvel Characters</h1>
+    <h2>Click to view their identity</h2>
+    <h3>And link to their web page!</h3>
+  </header> -->
+  <!-- container for force layout visualisation  -->
+
+  <script>
+
+    const data = {
+      "name": "Portfolio Page",
+      "description":"Portfolio Page",
+      "img": "static/media/my_logo_2.jpg",
+      "link": "portfolio_navigator.html",
+      "children": [
+        {
+          "name": "Matplotlib Ride Share Analysis",
+          "description": "Scrub through ride share data to see the analytics of fare prices and driver rider suppy and demand in different areas.",
+          "link": "https://google.com",
+          "img": "static/media/rideshare_updt.jpg",
+          "target":"",
+          "size": 40
+        },
+
+        {
+          // Old GitHub project name below
+          // DataViz--4---Pandas-Pandas-Pandas-Heroes-of-Pymoli-
+          "name": "Heros of Pymoli Project",
+          "description": "Wrangle purchasing data from the Heros of Pymoli game to see what patterns and outliers we can uncover.",
+          "link": "heros_project_page.html",
+          "img": "static/media/heros_fantasy.jpg",
+          "target":"",
+          "size": 40
+        },
+
+        {
+          "name": "Kickstarter Analysis Project",
+          "description": "Go through thousands of projects on Kickstarter to find patterns in the funding characteristics of successful and failed projects.",
+          "link": "https://google.com",
+          "img": "static/media/kickstarter_pic.jpg",
+          "target":"",
+          "size": 40
+        },
+
+        
+        {
+          "name": "Randomized Weather APIs Project",
+          "description": "Pull the weather of a randomized list of cities to see correlations between lattitude and different weather factors.",
+          "link": "weather_api_project.html",
+          "img": "static/media/weather_pic.jpg",
+          "target":"",
+          "size": 40
+          // "size": 40000
+        },
+
+        {
+          "name": "Belly Button Biodiversity App",
+          "description": "This is a fully deployed application that explores the Belly Button Biodiversity of 100's participants and displays their results in a series of dynamic visualizations.",
+          "link": "https://bellybuttondiversityu484750.herokuapp.com",
+          "img": "static/media/belly_button_biodiversity.jpg",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "Health Risks Age and Income Analysis",
+          "description": "This project uses D3.js to dynamically visualizes the relationship between different demographics and health to see if there is any link between certain factors and an individual's health.",
+          "link": "https://github.com/hgmhd7/D3.js-Correlations-Between-Health-Risks-Age-and-Income",
+          "img": "static/media/D3_scatter.gif",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "Mission to Mars Web Scrapping App",
+          "description": "In this project I created an application that scrapes the internet for different information about Mars and space research.",
+          "link": "https://github.com/hgmhd7/Mission-to-Mars-Web-Scrapping-App",
+          "img": "static/media/mars.jpg",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "VBA Stock Market Analysis",
+          "description": "Here I use MS Excel and VBA to organize and analyze patterns and trends in stock market data.",
+          "link": "https://github.com/hgmhd7/VBA-Stock-Market-Analysis",
+          "img": "static/media/stocks.jpg",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "Top Flight App",
+          "description": "A global study and visualization of correlations in airport ratings.",
+          "link": "https://github.com/hgmhd7/Top-Flight-App",
+          "img": "static/media/globe.png",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "Wine-O-Vation App",
+          "description": "This application takes a deep dive into the wonderful world of wine through machine learning and cutting edge analysis.",
+          "link": "https://github.com/hgmhd7/Wine-O-Vation",
+          "img": "static/media/wine_WC.png",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "Multi Classification of NASA Exoplanets",
+          "description": "In this project, I use multi-classification machine learning to classify candidate exoplanets from the raw data set provided by NASA.",
+          "link": "https://github.com/hgmhd7/Multi-Classification-of-NASA-Exoplanets",
+          "img": "static/media/space.png",
+          "target":"_blank",
+          "size": 40
+        },
+
+        {
+          "name": "Tableau Citi Bike Analysis",
+          "description": "In this project, I took a deep dive into the trends of the Citi Bike program to see If I could spot any areas that would be profitable for the company to focus on and grow in the future.",
+          "link": "https://public.tableau.com/profile/howard.mitchell#!/vizhome/CitiBikeAnalysis_15685152605160/CitiBikeStory",
+          "img": "static/media/citi_bike.png",
+          "target":"_blank",
+          "size": 40
+        }
+      ]
+    }
+
+
+    // some colour variables
+    var tcBlack = "#130C0E";
+
+    // rest of vars
+    var w = 1250,
+      h = 600,
+      maxNodeSize = 50,
+      x_browser = 20,
+      y_browser = 25,
+      root;
+
+    var vis;
+    var force = d3.layout.force();
+
+    vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
+
+    // d3.json("data", function(json) {
+
+    root = data;
+    root.fixed = true;
+    root.x = w / 2;
+    root.y = h / 4;
+
+
+    // Build the path
+    var defs = vis.insert("svg:defs")
       .data(["end"]);
- 
- 
-  defs.enter().append("svg:path")
+
+
+    defs.enter().append("svg:path")
       .attr("d", "M0,-5L10,0L0,5");
- 
-     update();
-});
- 
- 
-/**
- *   
- */
-function update() {
-  var nodes = flatten(root),
-      links = d3.layout.tree().links(nodes);
- 
-  // Restart the force layout.
-  force.nodes(nodes)
+
+    update();
+    // });
+
+
+    /**
+     *        
+     */
+    function update() {
+      var nodes = flatten(root),
+        links = d3.layout.tree().links(nodes);
+
+      // Restart the force layout.
+      force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-1500)
-    .linkDistance(100)
-    .friction(0.5)
-    .linkStrength(function(l, i) {return 1; })
-    .size([w, h])
-    .on("tick", tick)
+        .charge(-1500)
+        .linkDistance(250)
+        .friction(0.5)
+        .linkStrength(function (l, i) { return 1; })
+        .size([w, h])
+        .on("tick", tick)
         .start();
- 
-   var path = vis.selectAll("path.link")
-      .data(links, function(d) { return d.target.id; });
- 
-    path.enter().insert("svg:path")
-      .attr("class", "link")
+
+      var path = vis.selectAll("path.link")
+        .data(links, function (d) { return d.target.id; })
+
+
+      path.enter().insert("svg:path")
+        .attr("class", "link");
       // .attr("marker-end", "url(#end)")
-      .style("stroke", "#eee");
- 
- 
-  // Exit any old paths.
-  path.exit().remove();
- 
- 
- 
-  // Update the nodes…
-  var node = vis.selectAll("g.node")
-      .data(nodes, function(d) { return d.id; });
- 
- 
-  // Enter any new nodes.
-  var nodeEnter = node.enter().append("svg:g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click", click)
-      .call(force.drag);
- 
-  // Append a circle
-  nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
-      .style("fill", "#eee");
- 
-   
-  // Append images
-  var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return d.img;})
-        .attr("x", function(d) { return -25;})
-        .attr("y", function(d) { return -25;})
-        .attr("height", 50)
-        .attr("width", 50);
-  
-  // make the image grow a little on mouse over and add the text details on click
-  var setEvents = images
-          // Append hero text
-          .on( 'click', function (d) {
-              d3.select("h1").html(d.hero); 
-              d3.select("h2").html(d.name); 
-              d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" ); 
-           })
+      // .style("stroke", "#eee");
 
-          .on( 'mouseenter', function() {
-            // select element in current context
-            d3.select( this )
-              .transition()
-              .attr("x", function(d) { return -60;})
-              .attr("y", function(d) { return -60;})
-              .attr("height", 100)
-              .attr("width", 100);
-          })
-          // set back
-          .on( 'mouseleave', function() {
-            d3.select( this )
-              .transition()
-              .attr("x", function(d) { return -25;})
-              .attr("y", function(d) { return -25;})
-              .attr("height", 50)
-              .attr("width", 50);
-          });
 
-  // Append hero name on roll over next to the node as well
-  nodeEnter.append("text")
-      .attr("class", "nodetext")
-      .attr("x", x_browser)
-      .attr("y", y_browser +15)
-      .attr("fill", tcBlack)
-      .text(function(d) { return d.hero; });
- 
- 
-  // Exit any old nodes.
-  node.exit().remove();
- 
- 
-  // Re-select for update.
-  path = vis.selectAll("path.link");
-  node = vis.selectAll("g.node");
- 
-function tick() {
- 
- 
-    path.attr("d", function(d) {
- 
-     var dx = d.target.x - d.source.x,
-           dy = d.target.y - d.source.y,
-           dr = Math.sqrt(dx * dx + dy * dy);
-           return   "M" + d.source.x + "," 
-            + d.source.y 
-            + "A" + dr + "," 
-            + dr + " 0 0,1 " 
-            + d.target.x + "," 
+      // Exit any old paths.
+      path.exit().remove();
+
+
+
+      // Update the nodes…
+      var node = vis.selectAll("g.node")
+        .data(nodes, function (d) { return d.id; });
+
+
+      // Enter any new nodes.
+      var nodeEnter = node.enter().append("svg:g")
+        .attr("class", "node")
+        .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .on("click", click)
+        .call(force.drag);
+
+      // Append a circle
+      nodeEnter.append("svg:circle")
+        .attr("r", function (d) { return Math.sqrt(d.size) / 10 || 4.5; })
+        .style("fill", "#eee");
+
+
+      // Append images
+      var images = nodeEnter.append("svg:image")
+        .attr("xlink:href", function (d) { return d.img; })
+        .attr("x", function (d) { return -25; })
+        .attr("y", function (d) { return -25; })
+        .attr("height", 150)
+        .attr("width", 150);
+
+      // make the image grow a little on mouse over and add the text details on click
+      var setEvents = images
+        // Append project name and description text
+        .on('click', function (d) {
+          d3.select("projectName").html(d.name);
+          d3.select("#projectDescription").html(d.description);
+          d3.select("#projectImage").html("<img class='activator' src='" + d.img + "' alt='" + d.name + "'>");
+          d3.select("#projectLink").html("<a class='btn btn-primary stretched-link' stye='font-weight:bold; color: #eee' href='" + d.link + "' target='" +d.target + "'> View the " + d.name + "</a>");
+          // class='btn btn-primary stretched-link' stye="font-weight:bold; color: #eee">
+          // d3.select("#test").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" ); 
+        })
+
+
+        .on('mouseenter', function () {
+          // select element in current context
+          d3.select(this)
+            .transition()
+            .attr("x", function (d) { return -60; })
+            .attr("y", function (d) { return -60; })
+            .attr("height", 275)
+            .attr("width", 275);
+        })
+        // set back
+        .on('mouseleave', function () {
+          d3.select(this)
+            .transition()
+            .attr("x", function (d) { return -25; })
+            .attr("y", function (d) { return -25; })
+            .attr("height", 150)
+            .attr("width", 150);
+        });
+
+      // // Append project name on roll over next to the node as well
+      // nodeEnter.append("text")
+      //   .attr("class", "nodetext")
+      //   .attr("x", x_browser)
+      //   .attr("y", y_browser + 15)
+      //   .attr("fill", tcBlack)
+      //   .text(function (d) { return d.name; });
+
+
+      // Exit any old nodes.
+      node.exit().remove();
+
+
+      // Re-select for update.
+      path = vis.selectAll("path.link");
+      node = vis.selectAll("g.node");
+
+      function tick() {
+
+
+        path.attr("d", function (d) {
+
+          var dx = d.target.x - d.source.x,
+            dy = d.target.y - d.source.y,
+            dr = Math.sqrt(dx * dx + dy * dy);
+          return "M" + d.source.x + ","
+            + d.source.y
+            + "A" + dr + ","
+            + dr + " 0 0,1 "
+            + d.target.x + ","
             + d.target.y;
-  });
-    node.attr("transform", nodeTransform);    
-  }
-}
+        });
+        node.attr("transform", nodeTransform);
+      }
+    }
 
- 
-/**
- * Gives the coordinates of the border for keeping the nodes inside a frame
- * http://bl.ocks.org/mbostock/1129492
- */ 
-function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
-    return "translate(" + d.x + "," + d.y + ")";
-   }
- 
-/**
- * Toggle children on click.
- */ 
-function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
- 
-  update();
-}
- 
- 
-/**
- * Returns a list of all nodes under the root.
- */ 
-function flatten(root) {
-  var nodes = []; 
-  var i = 0;
- 
-  function recurse(node) {
-    if (node.children) 
-      node.children.forEach(recurse);
-    if (!node.id) 
-      node.id = ++i;
-    nodes.push(node);
-  }
- 
-  recurse(root);
-  return nodes;
-} 
-  
-  
-</script>
+
+    /**
+     * Gives the coordinates of the border for keeping the nodes inside a frame
+     * http://bl.ocks.org/mbostock/1129492
+     */
+    function nodeTransform(d) {
+      d.x = Math.max(maxNodeSize, Math.min(w - (d.imgwidth / 2 || 16), d.x));
+      d.y = Math.max(maxNodeSize, Math.min(h - (d.imgheight / 2 || 16), d.y));
+      return "translate(" + d.x + "," + d.y + ")";
+    }
+
+    /**
+     * Toggle children on click.
+     */
+    function click(d) {
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+
+      update();
+    }
+
+
+    /**
+     * Returns a list of all nodes under the root.
+     */
+    function flatten(root) {
+      var nodes = [];
+      var i = 0;
+
+      function recurse(node) {
+        if (node.children)
+          node.children.forEach(recurse);
+        if (!node.id)
+          node.id = ++i;
+        nodes.push(node);
+      }
+
+      recurse(root);
+      return nodes;
+    }
+
+
+  </script>
 
 </body>
+
 </html>
